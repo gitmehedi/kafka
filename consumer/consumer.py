@@ -18,8 +18,18 @@ consumer = KafkaConsumer(
      group_id='my-group',
      value_deserializer=lambda x: loads(x.decode('utf-8')))
 
-
+start_time = time.time()
 for message in consumer:
     username = message.value['username']
     password = message.value['password']
     cursor.execute("INSERT INTO USERS (username,password,fullname) VALUES (%s,%s,%s)",(username,password,username))
+    print(username)
+
+end_time = time.time()
+users = cursor.execute('SELECT * FROM users')
+for rec in users:
+    print(rec.username)
+
+print("Total Time: {0}".format(end_time-start_time))
+
+
