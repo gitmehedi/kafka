@@ -23,7 +23,7 @@ for message in consumer:
     username = message.value['username']
     password = message.value['password']
     cursor.execute("INSERT INTO USERS (username,password,fullname) VALUES (%s,%s,%s)",(username,password,username))
-    print(username)
+    print(message)
 
 end_time = time.time()
 users = cursor.execute('SELECT * FROM users')
