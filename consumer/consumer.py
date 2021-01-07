@@ -11,7 +11,7 @@ cluster = Cluster(IP,port=PORT)
 cursor = cluster.connect(keyspace=KEYSPACE)
 
 consumer = KafkaConsumer(
-    'numtest',
+    'cassandra',
      bootstrap_servers=['192.168.56.22:9092'],
      auto_offset_reset='earliest',
      enable_auto_commit=True,

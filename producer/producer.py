@@ -11,4 +11,4 @@ for e in range(COUNT):
     password = ''.join(random.choice(string.ascii_letters) for i in range(50))
     data = {'username': username, 'password': password, 'full_name': username}
     print("-----------------------{0}".format(e))
-    producer.send('numtest', value=data)
+    producer.send('cassandra', value=data)
