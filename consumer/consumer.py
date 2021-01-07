@@ -18,6 +18,7 @@ consumer = KafkaConsumer(
      group_id='my-group',
      value_deserializer=lambda x: loads(x.decode('utf-8')))
 
+print("consumer------------")
 start_time = time.time()
 for message in consumer:
     username = message.value['username']
