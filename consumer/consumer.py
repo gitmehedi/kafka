@@ -1,6 +1,14 @@
 from kafka import KafkaConsumer
-#from pymongo import MongoClient
+from cassandra.cluster import Cluster
+import random,string,time
 from json import loads
+
+PORT = 9042
+IP = ['192.168.56.22']
+KEYSPACE = 'test_keyspace'
+
+cluster = Cluster(IP,port=PORT)
+cursor = cluster.connect(keyspace=KEYSPACE)
 
 consumer = KafkaConsumer(
     'numtest',
@@ -12,7 +20,6 @@ consumer = KafkaConsumer(
 
 
 for message in consumer:
-    print(message)
-    #message = message.value
-    #collection.insert_one(message)
-    #print('{} added to {}'.format(message, collection))
+    username = message.value['username']
+    password = message.value['password']
+    cursor.execute("INSERT INTO USERS (username,password,fullname) VALUES (%s,%s,%s)",(username,password,username))
