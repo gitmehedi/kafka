@@ -4,7 +4,7 @@ import random,string,time
 from json import loads
 
 PORT = 9042
-IP = ['192.168.56.22']
+IP = ['127.0.0.1']
 KEYSPACE = 'test_keyspace'
 
 cluster = Cluster(IP,port=PORT)
