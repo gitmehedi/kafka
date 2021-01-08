@@ -32,7 +32,7 @@ for message in consumer:
         ref = message.value['ref']
         credit = message.value['credit']
         debit = message.value['debit']
-        cursor.execute("INSERT INTO account_move_line (id,ref,credit,debit) VALUES (%s,%s,%s,%s)",
+        cursor.execute("INSERT INTO account_move_line (id,ref,credit,debit) VALUES (%d,%s,%s,%s)",
                        (id, ref, credit, debit))
 
 end_time = time.time()
