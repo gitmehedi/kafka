@@ -33,8 +33,10 @@ for message in consumer:
         ref = message.value['ref']
         credit = message.value['credit']
         debit = message.value['debit']
-        cursor.execute("INSERT INTO account_move_line (id,ref,credit,debit) VALUES (%d,%s,%s,%s)",
-                       (id, ref, credit, debit))
+        sql = "INSERT INTO account_move_line (id,ref,credit,debit) VALUES ({0},{1},{2},{3})".format(id, ref, credit,
+                                                                                                    debit)
+        print(sql)
+        cursor.execute(sql)
 
 end_time = time.time()
 users = cursor.execute('SELECT * FROM users')
