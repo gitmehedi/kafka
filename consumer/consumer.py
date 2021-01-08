@@ -19,7 +19,7 @@ consumer = KafkaConsumer(
     value_deserializer=lambda x: loads(x.decode('utf-8')))
 
 start_time = time.time()
-count=1
+count = 1
 for message in consumer:
     if message.value['key'] == 'test':
         print("Test------------")
@@ -29,13 +29,13 @@ for message in consumer:
                        (username, password, username))
     if message.value['key'] == 'move':
         print("Move------------")
-        # id = int(message.value['id']) if 'id' in message.value else 0
-        id = count+1
+        id = int(message.value['id']) if 'id' in message.value else 0
         ref = message.value['ref']
         credit = message.value['credit']
         debit = message.value['debit']
-        sql = "INSERT INTO account_move_line (id,ref,credit,debit) VALUES ({0},'{1}','{2}','{3}')".format(id, ref, credit,
-                                                                                                    debit)
+        sql = "INSERT INTO account_move_line (id,ref,credit,debit) VALUES ({0},'{1}','{2}','{3}')".format(id, ref,
+                                                                                                          credit,
+                                                                                                          debit)
         print(sql)
         cursor.execute(sql)
 
