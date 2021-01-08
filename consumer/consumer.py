@@ -28,7 +28,8 @@ for message in consumer:
                        (username, password, username))
     if message.value['key'] == 'move':
         print("Move------------")
-        id = int(message.value['id']) if 'id' in message.value else 0
+        # id = int(message.value['id']) if 'id' in message.value else 0
+        id = 122
         ref = message.value['ref']
         credit = message.value['credit']
         debit = message.value['debit']
