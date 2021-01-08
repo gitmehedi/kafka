@@ -36,7 +36,6 @@ for message in consumer:
         sql = "INSERT INTO account_move_line (id,ref,credit,debit) VALUES ({0},'{1}','{2}','{3}')".format(id, ref,
                                                                                                           credit,
                                                                                                           debit)
-        print(sql)
         cursor.execute(sql)
 
 end_time = time.time()
