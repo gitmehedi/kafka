@@ -22,7 +22,7 @@ record = cursor.fetchall()
 
 for val in record:
     print("Journal Name:{0}, Debit: {1}, Credit: {2}".format(val[0], val[1], val[2]))
-    journal = {'key': 'move', 'ref': val[0], 'credit': val[1], 'debit': val[2]}
+    journal = {'key': 'move', 'ref': val[0], 'credit': str(val[1]), 'debit': str(val[2])}
     producer.send('cassandra', value=journal)
 
 for e in range(COUNT):
