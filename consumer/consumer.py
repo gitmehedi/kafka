@@ -20,6 +20,7 @@ consumer = KafkaConsumer(
 
 start_time = time.time()
 count = 1
+cursor.execute("TRUNCATE account_move_line;")
 for message in consumer:
     if message.value['key'] == 'test':
         print("Test------------")
