@@ -28,10 +28,12 @@ for message in consumer:
                        (username, password, username))
     if message.value['key'] == 'move':
         print("Move------------")
+        id = message.value['id']
         ref = message.value['ref']
         credit = message.value['credit']
         debit = message.value['debit']
-        cursor.execute("INSERT INTO account_move_line (ref,credit,debit) VALUES (%s,%s,%s)", (ref, credit, debit))
+        cursor.execute("INSERT INTO account_move_line (id,ref,credit,debit) VALUES (%s,%s,%s)",
+                       (id, ref, credit, debit))
 
 end_time = time.time()
 users = cursor.execute('SELECT * FROM users')

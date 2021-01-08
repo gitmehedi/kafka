@@ -17,12 +17,12 @@ producer = KafkaProducer(bootstrap_servers=KF_IP, value_serializer=lambda x: dum
 connection = psycopg2.connect(user=PG_USER, password=PG_PASS, host=PG_HOST, port=PG_PORT, database=PG_DB)
 cursor = connection.cursor()
 
-cursor.execute("SELECT name,debit,credit FROM account_move_line;")
+cursor.execute("SELECT id,name,debit,credit FROM account_move_line;")
 record = cursor.fetchall()
 
 for val in record:
     print("Journal Name:{0}, Debit: {1}, Credit: {2}".format(val[0], val[1], val[2]))
-    journal = {'key': 'move', 'ref': val[0], 'credit': str(val[1]), 'debit': str(val[2])}
+    journal = {'key': 'move', 'id': val[0], 'ref': val[1], 'credit': str(val[2]), 'debit': str(val[3])}
     producer.send('cassandra', value=journal)
 
 for e in range(COUNT):
