@@ -34,7 +34,7 @@ for message in consumer:
         ref = message.value['ref']
         credit = message.value['credit']
         debit = message.value['debit']
-        sql = "INSERT INTO account_move_line (id,ref,credit,debit) VALUES ({0},{1},{2},{3})".format(id, ref, credit,
+        sql = "INSERT INTO account_move_line (id,ref,credit,debit) VALUES ({0},'{1}','{2}','{3}')".format(id, ref, credit,
                                                                                                     debit)
         print(sql)
         cursor.execute(sql)
