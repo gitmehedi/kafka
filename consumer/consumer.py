@@ -21,7 +21,7 @@ consumer = KafkaConsumer(
 start_time = time.time()
 for message in consumer:
     print("Testing------------")
-    if message.value['key'] == 'testing':
+    if 'test' in message.value:
         username = message.value['username']
         password = message.value['password']
         cursor.execute("INSERT INTO USERS (username,password,full_name) VALUES (%s,%s,%s)",
@@ -29,7 +29,7 @@ for message in consumer:
 
 for message in consumer:
     print("Move------------")
-    if message.value['key'] == 'move':
+    if 'move' in message.value:
         ref = message.value['ref']
         credit = message.value['credit']
         debit = message.value['debit']
