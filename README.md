@@ -43,3 +43,15 @@ $ kafka/bin/kafka-topics.sh --create --zookeeper 192.168.56.22:2181 --partitions
 * https://kafka-python.readthedocs.io/en/master/
 
 
+## General Cassandra Query Structure
+
+```
+CREATE TABLE test_keyspace.account_move_line (
+    id int PRIMARY KEY,
+    ref text,
+    credit text,
+    debit text
+);
+
+```
+
