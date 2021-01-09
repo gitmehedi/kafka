@@ -1,0 +1,19 @@
+database:
+  cassandra:
+    hostname:
+    port:
+    username:
+    password:
+    database:
+  neo4j:
+    hostname:
+    port:
+    username:
+    password:
+    database:
+  postgres:
+    hostname: 192.168.56.21
+    port: 5432
+    username: odoo
+    password: code200!
+    database: MTBL
