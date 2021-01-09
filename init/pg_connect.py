@@ -1,14 +1,12 @@
 import psycopg2
 from psycopg2 import Error
+import utils
 
-PG_USER = "odoo"
-PG_PASS = "code200!"
-PG_HOST = "192.168.56.21"
-PG_PORT = "5432"
-PG_DB = "MTBL"
+pg = utils.DbConnect('postgres')
 
 try:
-    connection = psycopg2.connect(user=PG_USER, password=PG_PASS, host=PG_HOST, port=PG_PORT, database=PG_DB)
+    connection = psycopg2.connect(user=pg['username'], password=pg['password'], host=pg['hostname'], port=pg['port'],
+                                  database=pg['database'])
     cursor = connection.cursor()
 
     cursor.execute("SELECT name,debit,credit FROM account_move_line;")
