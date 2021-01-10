@@ -1,4 +1,4 @@
-# Big Data Architect
+# Kafka Integration
 
 ## Installation
 ### Python code preparation
