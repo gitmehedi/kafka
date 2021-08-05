@@ -46,7 +46,7 @@ $ kafka/bin/kafka-topics.sh --create --zookeeper 192.168.56.22:2181 --partitions
 
 ```
 -- Create table account_move_line in test_keyspace
-cqlsh> CREATE TABLE test_keyspace.account_move_line (
+cqlsh > CREATE TABLE test_keyspace.account_move_line (
     id int PRIMARY KEY,
     ref text,
     credit text,
