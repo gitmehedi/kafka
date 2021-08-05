@@ -15,8 +15,6 @@ $ sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss
 - install pip 
 $ apt install python3-pip
 
-
-- 
 ```
 
 Install Kafka on top of python
