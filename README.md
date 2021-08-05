@@ -1,8 +1,9 @@
 # Kafka
 
 ## Installation
-### Python code preparation
-#### Prerequitesite 
+### Python Code Preparation
+#### Prerequitesite
+
 Install Python and its related packages
 ```
 - update os
