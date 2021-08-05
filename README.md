@@ -1,4 +1,4 @@
-# Kafka Integration
+# Kafka
 
 ## Installation
 ### Python code preparation
